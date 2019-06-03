@@ -9,11 +9,12 @@ const forecast = (lat, lon, callback) => {
             callback('The location is failed', undefined);
         } else {
             const data = body;
+            console.log(data)
             const { currently } = data; 
-            const { temperature, precipProbability, summary } = currently; 
+            const { temperature, precipProbability, summary, humidity } = currently; 
             callback(
                 undefined, 
-                `${summary} It is currently ${temperature} degrees out. There is a ${precipProbability}% chances of rain.`
+                `${summary} It is currently ${temperature} degrees out with ${humidity} of humidity. There is a ${precipProbability}% chances of rain.`
             );
         }
     });
